@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Drawable to new to drawable resource file-->
+<!--Now replace selector into shape-->
+<!--add android:shape-->
+
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#23B9CD"/>
+    <corners android:radius="25dp"/>
+</shape>
+
+<!--Now we will do some change in values/themes.xml files-->

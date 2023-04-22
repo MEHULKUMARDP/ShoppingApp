@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listview_cart"
+        android:layout_width="match_parent"
+        android:layout_height="610dp"
+        android:divider="@color/white" />
+
+    <Button
+        android:id="@+id/place_order"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:background="@drawable/shape"
+        android:backgroundTint="#F33F06"
+        android:layout_marginTop="45dp"
+        android:text="place order"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
