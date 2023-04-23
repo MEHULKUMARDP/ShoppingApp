@@ -155,30 +155,6 @@ public class CustomListAdapter extends BaseAdapter {
 
 
 
-                viewHolder.img2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            //Toast.makeText(mcontext, "You clicked on " + viewHolder.txt1.getText(), Toast.LENGTH_SHORT).show();
-                            viewHolder.img2.setColorFilter(Color.GREEN);
-
-
-                        //    ID[(int) getItemId(position)]= String.valueOf(getItemId(position));
-
-                          //  Log.d("IDD", String.valueOf(getItem(position)));
-
-                            ID[(int) getItemId(position)] = String.valueOf(getItemId(position));
-
-
-                            Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
-
-
-                           ar.add(new CustomListPOJO(l.get(position).getImage(),l.get(position).getCompany(),l.get(position).getItem(),l.get(position).getPrice()));
-
-
-                    }
-
-                });
-
             for(i=0;i<ID.length;i++)
             {
                 if(Arrays.asList(ID).contains(String.valueOf(getItemId(position))))
@@ -187,6 +163,34 @@ public class CustomListAdapter extends BaseAdapter {
 
                 }
             }
+
+
+                viewHolder.img2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(mcontext, "You clicked on " + viewHolder.txt1.getText(), Toast.LENGTH_SHORT).show();
+
+
+
+                        //    ID[(int) getItemId(position)]= String.valueOf(getItemId(position));
+
+                        //  Log.d("IDD", String.valueOf(getItem(position)));
+
+                        ID[(int) getItemId(position)] = String.valueOf(getItemId(position));
+
+
+                        Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
+
+
+                        ar.add(new CustomListPOJO(l.get(position).getImage(),l.get(position).getCompany(),l.get(position).getItem(),l.get(position).getPrice()));
+
+                      //  viewHolder.img2.setColorFilter(Color.GREEN);
+
+                        viewHolder.img2.setImageResource(R.drawable.baseline_shopping_cart_24_green);
+                    }
+                });
+
+
 
 
 
