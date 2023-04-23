@@ -12,22 +12,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.Acmegrade.onlineshopping.CustomListAdapter;
-import com.Acmegrade.onlineshopping.CustomListPOJO;
 import com.Acmegrade.onlineshopping.R;
 import com.Acmegrade.onlineshopping.databinding.FragmentCartBinding;
-
-import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
 
     private FragmentCartBinding binding;
     int flag=1;
     ListView lv;
-    CustomListAdapter adapter;
-    public ArrayList<CustomListPOJO> arr;
+    TextView txt;
+//    SecondCustomListAdapter adapter;
+      CustomListAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,10 +38,17 @@ public class CartFragment extends Fragment {
 
 
 
-        arr=new ArrayList<CustomListPOJO>();
+
+//        array=new ArrayList<CustomListPOJO>();
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
 
+        txt = view.findViewById(R.id.text_cart);
+
+
+
+
         lv=view.findViewById(R.id.listview_cart);
+
 //        //Defining object
 //        arr=new ArrayList<CustomListPOJO>();
 //
@@ -62,15 +66,45 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        adapter = new CustomListAdapter(, getContext(),1);
-//        lv.setAdapter(adapter);
+
+
+       // CustomListAdapter obj = new CustomListAdapter();
+        adapter = new CustomListAdapter(CustomListAdapter.ar,getContext(),1);
+        lv.setAdapter(adapter);
 
         Button btn = view.findViewById(R.id.place_order);
+
+        if(CustomListAdapter.ar.isEmpty())
+        {
+            txt.setVisibility(View.VISIBLE);
+            btn.setVisibility(View.GONE);
+        }
+
+        else
+        {
+            btn.setVisibility(View.VISIBLE);
+            txt.setVisibility(View.GONE);
+        }
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Your order has successfully placed", Toast.LENGTH_SHORT).show();
+
+                CustomListAdapter.ar.clear();
+
+                for(int i=0;i<CustomListAdapter.ID.length;i++)
+                {
+                    CustomListAdapter.ID[i]="";
+                }
+
+                adapter.notifyDataSetChanged();
+
+
+
+                txt.setVisibility(View.VISIBLE);
+                btn.setVisibility(View.GONE);
             }
         });
     }

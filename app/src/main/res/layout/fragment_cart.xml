@@ -8,9 +8,18 @@
 
     <ListView
         android:id="@+id/listview_cart"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="610dp"
         android:divider="@color/white" />
+
+    <TextView
+        android:id="@+id/text_cart"
+        android:text="No items in your cart"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/place_order"
@@ -19,7 +28,7 @@
         android:layout_gravity="center"
         android:background="@drawable/shape"
         android:backgroundTint="#F33F06"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:text="place order"
         android:textColor="@color/white"
         android:textSize="20sp" />

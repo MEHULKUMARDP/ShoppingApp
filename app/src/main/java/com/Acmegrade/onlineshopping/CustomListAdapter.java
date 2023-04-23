@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,21 +19,32 @@ import android.widget.Toast;
 
 import com.Acmegrade.onlineshopping.ui.home.HomeFragment;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter {
 
     ArrayList<CustomListPOJO> al;
-    ArrayList<CustomListPOJO> arr;
 
+  //  ArrayList<SecondCustomListPOJO> ar;
 
+    int i;
+
+    public static String[] ID = new String[10];
     List<CustomListPOJO> l;
     Context mcontext;
     int FLAG;
 
+//    public static ArrayList<SecondCustomListPOJO> ar = new ArrayList<SecondCustomListPOJO>();
+      public static ArrayList<CustomListPOJO> ar = new ArrayList<CustomListPOJO>();
+
+
+
     public CustomListAdapter(List<CustomListPOJO> l, Context context, int flag)
     {
+
         mcontext = context;
         this.l = l;
         this.al = new ArrayList<CustomListPOJO>();
@@ -40,12 +52,22 @@ public class CustomListAdapter extends BaseAdapter {
         this.FLAG=flag;
     }
 
+//    public CustomListAdapter()
+//    {
+//         ar=new ArrayList<SecondCustomListPOJO>();
+//    }
+
+
+
+
+
     public class ViewHolder
     {
         ImageView img;
 
         ImageView img2;
         TextView txt1,txt2,txt3;
+
     }
 
     @Override
@@ -130,33 +152,41 @@ public class CustomListAdapter extends BaseAdapter {
             viewHolder.txt2.setText(prc);
             viewHolder.txt3.setText(itm);
 
-            arr=new ArrayList<CustomListPOJO>();
+
+
 
                 viewHolder.img2.setOnClickListener(new View.OnClickListener() {
-                    boolean clicked = false;
                     @Override
                     public void onClick(View v) {
-
-
-                        if (clicked) {
-                            Toast.makeText(mcontext, "already in cart", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(mcontext, "You clicked on " + viewHolder.txt1.getText(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(mcontext, "You clicked on " + viewHolder.txt1.getText(), Toast.LENGTH_SHORT).show();
                             viewHolder.img2.setColorFilter(Color.GREEN);
-                            clicked = true;
 
 
+                        //    ID[(int) getItemId(position)]= String.valueOf(getItemId(position));
 
-//                            Error in getSharedPreferences
+                          //  Log.d("IDD", String.valueOf(getItem(position)));
 
-//                            SharedPreferences sharedPreferences = getSharedPreferences("MyShared",MODE_PRIVATE);
-//                            SharedPreferences.Editor myEdit = sharedPreferences.edit();
-//                            myEdit.apply();
+                            ID[(int) getItemId(position)] = String.valueOf(getItemId(position));
 
-                        }
+
+                            Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
+
+
+                           ar.add(new CustomListPOJO(l.get(position).getImage(),l.get(position).getCompany(),l.get(position).getItem(),l.get(position).getPrice()));
+
+
                     }
 
                 });
+
+            for(i=0;i<ID.length;i++)
+            {
+                if(Arrays.asList(ID).contains(String.valueOf(getItemId(position))))
+                {
+                    viewHolder.img2.setColorFilter(Color.BLUE);
+
+                }
+            }
 
 
 
@@ -167,6 +197,7 @@ public class CustomListAdapter extends BaseAdapter {
         }
         return convertView;
     }
+
 
 
 }
