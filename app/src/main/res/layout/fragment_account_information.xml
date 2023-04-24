@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -40,6 +42,11 @@
 
     </LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <Button
         android:id="@+id/back_to_home"
@@ -95,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textColor="#6A6868"
                 android:text="name" />
         </LinearLayout>
 
@@ -132,7 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="+91-9796325314" />
+                android:textColor="#6A6868"
+                android:text="+91-7802827504" />
         </LinearLayout>
 
     </LinearLayout>
@@ -169,6 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textColor="#6A6868"
                 android:text="email" />
         </LinearLayout>
 
@@ -205,8 +215,9 @@
                 android:id="@+id/user_ADDRESS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Visnagar city - 384315, Mehsana, Gujarat" />
+                android:text="Visnagar city - 384315, Mehsana, Gujarat"
+                android:textColor="#6A6868"
+                android:textSize="16sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -243,11 +254,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textColor="#6A6868"
                 android:text="02-04-2004" />
         </LinearLayout>
 
     </LinearLayout>
 
-
+</LinearLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -159,8 +159,12 @@ public class CustomListAdapter extends BaseAdapter {
             {
                 if(Arrays.asList(ID).contains(String.valueOf(getItemId(position))))
                 {
-                    viewHolder.img2.setColorFilter(Color.BLUE);
+                    viewHolder.img2.setColorFilter(Color.GREEN);
 
+                }
+                else
+                {
+                    viewHolder.img2.setColorFilter(Color.RED);
                 }
             }
 
@@ -179,14 +183,17 @@ public class CustomListAdapter extends BaseAdapter {
                         ID[(int) getItemId(position)] = String.valueOf(getItemId(position));
 
 
-                        Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mcontext, viewHolder.txt1.getText(), Toast.LENGTH_LONG).show();
+//                        Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
 
 
                         ar.add(new CustomListPOJO(l.get(position).getImage(),l.get(position).getCompany(),l.get(position).getItem(),l.get(position).getPrice()));
 
-                      //  viewHolder.img2.setColorFilter(Color.GREEN);
+                        
+                        viewHolder.img2.setColorFilter(Color.GREEN);
 
-                        viewHolder.img2.setImageResource(R.drawable.baseline_shopping_cart_24_green);
+
+                      //  viewHolder.img2.setImageResource(R.drawable.baseline_shopping_cart_24_green);
                     }
                 });
 
