@@ -1,25 +1,14 @@
 package com.Acmegrade.onlineshopping;
 
-import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.Acmegrade.onlineshopping.ui.home.HomeFragment;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,20 +16,15 @@ import java.util.List;
 public class CustomListAdapter extends BaseAdapter {
 
     ArrayList<CustomListPOJO> al;
-
-  //  ArrayList<SecondCustomListPOJO> ar;
-
     int i;
 
+    //for 10 items, we take arraysize=10
     public static String[] ID = new String[10];
     List<CustomListPOJO> l;
     Context mcontext;
     int FLAG;
 
-//    public static ArrayList<SecondCustomListPOJO> ar = new ArrayList<SecondCustomListPOJO>();
-      public static ArrayList<CustomListPOJO> ar = new ArrayList<CustomListPOJO>();
-
-
+    public static ArrayList<CustomListPOJO> ar = new ArrayList<CustomListPOJO>();
 
     public CustomListAdapter(List<CustomListPOJO> l, Context context, int flag)
     {
@@ -51,13 +35,6 @@ public class CustomListAdapter extends BaseAdapter {
         this.al.addAll(l);
         this.FLAG=flag;
     }
-
-//    public CustomListAdapter()
-//    {
-//         ar=new ArrayList<SecondCustomListPOJO>();
-//    }
-
-
 
 
 
@@ -100,27 +77,6 @@ public class CustomListAdapter extends BaseAdapter {
             viewHolder.img2=(ImageView) convertView.findViewById(R.id.cart_image);
 
 
-//            ListView listView1 = (ListView) convertView.findViewById(R.id.listview_home);
-//
-//            ListView listView2 = (ListView) convertView.findViewById(R.id.listview_cart);
-//
-//            ArrayAdapter<CustomListPOJO> adapter2 = new ArrayAdapter<CustomListPOJO>(mcontext, R.layout.customlistviewlayout);
-//            listView2.setAdapter(adapter2);
-//
-//
-//
-//            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    // Get the data associated with the clicked item
-//                    CustomListPOJO clickedItem = (CustomListPOJO) parent.getItemAtPosition(position);
-//
-//                    // Add the data to the adapter of the second ListView
-//                    adapter2.add(clickedItem);
-//
-//                    // Refresh the second ListView to show the newly added data
-//                    adapter2.notifyDataSetChanged();
-//                }
-//            });
 //            setTag() is a flexible and useful method in Android Studio that allows you to attach custom data or metadata to a view, which can be useful in a variety of scenarios.
 //            We can later retrieve this tag using the getTag() method.
             convertView.setTag(viewHolder);
@@ -153,14 +109,12 @@ public class CustomListAdapter extends BaseAdapter {
             viewHolder.txt3.setText(itm);
 
 
-
-
+            //This is so that the changes are committed when we return to the home fragment from another fragment
             for(i=0;i<ID.length;i++)
             {
                 if(Arrays.asList(ID).contains(String.valueOf(getItemId(position))))
                 {
                     viewHolder.img2.setColorFilter(Color.GREEN);
-
                 }
                 else
                 {
@@ -172,34 +126,17 @@ public class CustomListAdapter extends BaseAdapter {
                 viewHolder.img2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //Toast.makeText(mcontext, "You clicked on " + viewHolder.txt1.getText(), Toast.LENGTH_SHORT).show();
 
-
-
-                        //    ID[(int) getItemId(position)]= String.valueOf(getItemId(position));
-
-                        //  Log.d("IDD", String.valueOf(getItem(position)));
 
                         ID[(int) getItemId(position)] = String.valueOf(getItemId(position));
-
-
-//                        Toast.makeText(mcontext, viewHolder.txt1.getText(), Toast.LENGTH_LONG).show();
 //                        Toast.makeText(mcontext, String.valueOf(getItemId(position))+"", Toast.LENGTH_SHORT).show();
 
-
+                        //for item will be add in Cart fragment
                         ar.add(new CustomListPOJO(l.get(position).getImage(),l.get(position).getCompany(),l.get(position).getItem(),l.get(position).getPrice()));
-
-                        
                         viewHolder.img2.setColorFilter(Color.GREEN);
 
-
-                      //  viewHolder.img2.setImageResource(R.drawable.baseline_shopping_cart_24_green);
                     }
                 });
-
-
-
-
 
         }
         catch (Exception ex)
@@ -208,7 +145,5 @@ public class CustomListAdapter extends BaseAdapter {
         }
         return convertView;
     }
-
-
 
 }

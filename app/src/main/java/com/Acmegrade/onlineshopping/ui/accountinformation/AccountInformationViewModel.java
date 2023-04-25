@@ -17,14 +17,4 @@ public class AccountInformationViewModel extends ViewModel {
         return mText;
     }
 
-//    private final MutableLiveData<String> selectedItem = new MutableLiveData<String>();
-//
-//    public void setData(String item)
-//    {
-//        selectedItem.setValue(item);
-//    }
-//
-//    public LiveData<String> getSelectedItem(){
-//        return selectedItem;
-//    }
 }

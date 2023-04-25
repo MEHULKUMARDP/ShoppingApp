@@ -40,7 +40,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-
         lv=view.findViewById(R.id.listview_home);
         //Defining object
         arr=new ArrayList<CustomListPOJO>();
@@ -65,7 +64,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      //  CustomListAdapter obj = new CustomListAdapter();
         adapter = new CustomListAdapter(arr, getContext(), 0);
         lv.setAdapter(adapter);
 

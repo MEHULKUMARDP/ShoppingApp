@@ -23,7 +23,6 @@ public class InputValidation {
         if(value.isEmpty())
         {
             textInputLayout.setError(message);
-            //hideKeyboardFrom(textInputEditText);
             return false;
         }
         else

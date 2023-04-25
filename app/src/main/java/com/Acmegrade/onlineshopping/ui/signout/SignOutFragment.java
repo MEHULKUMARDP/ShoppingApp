@@ -29,7 +29,12 @@ public class SignOutFragment extends Fragment {
 //        final TextView textView = binding.textSignOut;
 //        signOutViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        //sign out and go to Login page or LoginActivity
         Intent intent = new Intent(getContext(), LoginActivity.class);
+
+        //It is used to configure an intent that launches a new activity and clears any existing activities on the back stack.
+        //Intent.FLAG_ACTIVITY_NEW_TASK - This flag is used to create a new task for the activity.
+        //Intent.FLAG_ACTIVITY_CLEAR_TASK - This flag is used to clear any existing activities on the task before launching the new activity.
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
 

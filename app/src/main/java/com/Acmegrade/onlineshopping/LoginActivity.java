@@ -59,12 +59,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(databaseHelper.checkUser(email_log.getText().toString().trim(), pass_log.getText().toString().trim()))
                 {
+
+                    //The name attached to the given email will return
                     String NAME = databaseHelper.getNameFromEmail(email_log.getText().toString().trim());
 
                     Intent accountsIntent = new Intent(LoginActivity.this,HomeActivity.class);
                     accountsIntent.putExtra("Name",NAME);
                     accountsIntent.putExtra("Email",email_log.getText().toString().trim());
-//                    emptyInputEditText();
+
                     startActivity(accountsIntent);
                 }
 

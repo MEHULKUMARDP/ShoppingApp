@@ -32,19 +32,21 @@ public class AccountInformationFragment extends Fragment {
 //
 //        binding = FragmentAccountInformationBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
-//
+
           View view = inflater.inflate(R.layout.fragment_account_information,container,false);
           txt_NAME = view.findViewById(R.id.user_NAME);
           txt_EMAIL = view.findViewById(R.id.user_EMAIL);
           txt_name = view.findViewById(R.id.user_name);
           txt_email = view.findViewById(R.id.user_email);
-//        Bundle bundle = getArguments();
-//
-//
-//            USERNAME = bundle.getString("username");
-//            txt_name.setText(USERNAME);
 
 
+          //          Bundle bundle = getArguments();
+        //            USERNAME = bundle.getString("username");
+        //            txt_name.setText(USERNAME);
+
+
+
+        //From HomeActivity, we use 'MySharedPref' file
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
 
         txt_name.setText(sharedPreferences.getString("username",""));
@@ -53,9 +55,7 @@ public class AccountInformationFragment extends Fragment {
         txt_EMAIL.setText(sharedPreferences.getString("email",""));
 
         return view;
-//
-//
-//
+
 //        //final TextView textView = binding.textAccountInformation;
 //        //accountInformationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
        // return root;
@@ -72,6 +72,7 @@ public class AccountInformationFragment extends Fragment {
 
         Button btn = view.findViewById(R.id.back_to_home);
 
+        //Go back on click of button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

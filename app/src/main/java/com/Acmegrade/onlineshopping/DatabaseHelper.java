@@ -161,6 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    //The name attached to the given email will return
     @SuppressLint("Range")
     public String getNameFromEmail(String email) {
         String name = null;

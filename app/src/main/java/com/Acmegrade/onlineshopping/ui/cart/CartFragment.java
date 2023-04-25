@@ -23,8 +23,7 @@ public class CartFragment extends Fragment {
     int flag=1;
     ListView lv;
     TextView txt;
-//    SecondCustomListAdapter adapter;
-      CustomListAdapter adapter;
+    CustomListAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,18 +43,8 @@ public class CartFragment extends Fragment {
 
         txt = view.findViewById(R.id.text_cart);
 
-
-
-
         lv=view.findViewById(R.id.listview_cart);
 
-//        //Defining object
-//        arr=new ArrayList<CustomListPOJO>();
-//
-//        arr.add(new CustomListPOJO(R.drawable.chess,"LEVI'S","White women t-shirt","Rs.1050"));
-//        arr.add(new CustomListPOJO(R.drawable.candy_crush,"CELLO","Water bottles-4","Rs.1750"));
-//        arr.add(new CustomListPOJO(R.drawable.cricket,"CELLO","Water bottles-4","Rs.1750"));
-//
         return view;
 
 //        final TextView textView = binding.textCart;
@@ -67,19 +56,17 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-       // CustomListAdapter obj = new CustomListAdapter();
         adapter = new CustomListAdapter(CustomListAdapter.ar,getContext(),1);
         lv.setAdapter(adapter);
 
         Button btn = view.findViewById(R.id.place_order);
 
+        //For visibility of TextView and Button
         if(CustomListAdapter.ar.isEmpty())
         {
             txt.setVisibility(View.VISIBLE);
             btn.setVisibility(View.GONE);
         }
-
         else
         {
             btn.setVisibility(View.VISIBLE);
@@ -92,6 +79,7 @@ public class CartFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Your order has successfully placed", Toast.LENGTH_SHORT).show();
 
+                //Remove all items
                 CustomListAdapter.ar.clear();
 
                 for(int i=0;i<CustomListAdapter.ID.length;i++)
@@ -99,9 +87,8 @@ public class CartFragment extends Fragment {
                     CustomListAdapter.ID[i]="";
                 }
 
+                //This android function notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.
                 adapter.notifyDataSetChanged();
-
-
 
                 txt.setVisibility(View.VISIBLE);
                 btn.setVisibility(View.GONE);

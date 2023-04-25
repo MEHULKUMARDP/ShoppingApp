@@ -1,7 +1,7 @@
 package com.Acmegrade.onlineshopping;
 
 public class CustomListPOJO {
-    int image,image2;
+    int image;
     String company, item, price;
 
     public CustomListPOJO(int image, String company, String item, String price) {
