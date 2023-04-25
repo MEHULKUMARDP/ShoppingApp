@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+// First page or Registration page/activity or Main activity
 public class MainActivity extends AppCompatActivity {
 
     TextInputLayout name_lay,email_lay,pass_lay,confirmPass_lay;
