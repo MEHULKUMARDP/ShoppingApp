@@ -49,12 +49,12 @@
 
         <TextView
             android:id="@+id/item_name"
-            android:layout_width="304dp"
+            android:layout_width="301dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-
             android:text="TextView"
+            android:textColor="#6A6868"
             android:textSize="18sp"
             android:textStyle="bold" />
 
